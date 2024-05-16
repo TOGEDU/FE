@@ -6,6 +6,8 @@ import Signup from "./screens/Signup/Signup";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { GlobalStyles } from "./constants/styles";
+import ParentSignup from "./screens/Signup/ParentSignup";
+import ChildSignup from "./screens/Signup/ChildSignup";
 
 const arrowLeftImage = require("./assets/arrow-left.png");
 
@@ -16,7 +18,7 @@ export default function App() {
     <NavigationContainer>
       <StatusBar
         backgroundCorlor={GlobalStyles.colors.primary100}
-        style="dark-"
+        style="dark"
       />
       <Stack.Navigator
         screenOptions={{
@@ -32,7 +34,10 @@ export default function App() {
             headerTitle: "TOGEDU",
             headerTitleStyle: { fontSize: 30, fontFamily: "Arsenal" },
             headerTintColor: "white",
-            headerStyle: { backgroundColor: GlobalStyles.colors.primary100, height: 100 },
+            headerStyle: {
+              backgroundColor: GlobalStyles.colors.primary100,
+              height: 100,
+            },
             headerLeft: () => (
               <TouchableOpacity
                 style={styles.headerLeftContainer}
@@ -43,6 +48,29 @@ export default function App() {
             ),
           })}
         />
+        <Stack.Screen
+          name="ParentSignup"
+          component={ParentSignup}
+          options={({ navigation }) => ({
+            headerShown: true,
+            headerTitle: "Signup",
+            headerTitleStyle: { fontSize: 30, fontFamily: "Arsenal" },
+            headerTintColor: "white",
+            headerStyle: {
+              backgroundColor: GlobalStyles.colors.primary100,
+              height: 100,
+            },
+            headerLeft: () => (
+              <TouchableOpacity
+                style={styles.headerLeftContainer}
+                onPress={() => navigation.goBack()}
+              >
+                <Image source={arrowLeftImage} style={styles.arrowLeftImage} />
+              </TouchableOpacity>
+            ),
+          })}
+        />
+        <Stack.Screen name="ChildSignup" component={ChildSignup} />
       </Stack.Navigator>
     </NavigationContainer>
   );
