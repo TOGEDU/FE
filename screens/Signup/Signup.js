@@ -1,14 +1,27 @@
 import React from "react";
 import { StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
 import { GlobalStyles } from "../../constants/styles";
+import { useNavigation } from "@react-navigation/native";
 
 function Signup() {
+  const navigation = useNavigation();
+
+  const navigateToParentSignup = () => {
+    navigation.navigate("ParentSignup");
+  };
+  const navigateToChildSignup = () => {
+    navigation.navigate("ChildSignup");
+  };
+
   return (
     <View style={styles.outerContainer}>
       <View style={styles.container}>
         <Text style={styles.title}>회원가입</Text>
         <View style={styles.buttonContainer}>
-          <TouchableOpacity style={[styles.button, styles.parentBtn]}>
+          <TouchableOpacity
+            onPress={navigateToParentSignup}
+            style={[styles.button, styles.parentBtn]}
+          >
             <Text style={styles.buttonText}>부모로{"\n"}가입하기</Text>
             <View style={styles.imageContainer}>
               <Image
@@ -21,7 +34,10 @@ function Signup() {
               />
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={[styles.button, styles.childBtn]}>
+          <TouchableOpacity
+            onPress={navigateToChildSignup}
+            style={[styles.button, styles.childBtn]}
+          >
             <Text style={styles.buttonText}>자식으로{"\n"}가입하기</Text>
             <View style={styles.imageContainer}>
               <Image
@@ -49,7 +65,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    justifyContent: "center",
+
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
   },
@@ -57,7 +73,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     marginBottom: 100,
-    marginTop: -137,
+    marginTop: 55,
   },
   buttonContainer: {
     flexDirection: "row",
