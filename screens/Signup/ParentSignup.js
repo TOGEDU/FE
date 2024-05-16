@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 function ParentSignup() {
   return (
     <View>
-      <Text>로그인 페이지!!</Text>
+      <Text>부모 회원가입 페이지</Text>
     </View>
   );
 }
