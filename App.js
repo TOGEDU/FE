@@ -73,7 +73,6 @@ export default function App() {
         <Stack.Screen
           name="ChildSignup"
           component={ChildSignup}
-          component={ParentSignup}
           options={({ navigation }) => ({
             headerShown: true,
             headerTitle: "Signup",
