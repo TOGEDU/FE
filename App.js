@@ -70,7 +70,29 @@ export default function App() {
             ),
           })}
         />
-        <Stack.Screen name="ChildSignup" component={ChildSignup} />
+        <Stack.Screen
+          name="ChildSignup"
+          component={ChildSignup}
+          component={ParentSignup}
+          options={({ navigation }) => ({
+            headerShown: true,
+            headerTitle: "Signup",
+            headerTitleStyle: { fontSize: 30, fontFamily: "Arsenal" },
+            headerTintColor: "white",
+            headerStyle: {
+              backgroundColor: GlobalStyles.colors.primary100,
+              height: 100,
+            },
+            headerLeft: () => (
+              <TouchableOpacity
+                style={styles.headerLeftContainer}
+                onPress={() => navigation.goBack()}
+              >
+                <Image source={arrowLeftImage} style={styles.arrowLeftImage} />
+              </TouchableOpacity>
+            ),
+          })}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
