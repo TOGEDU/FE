@@ -9,16 +9,30 @@ import {
 import { GlobalStyles } from "../../../constants/styles";
 import Svg, { Path } from "react-native-svg";
 import { useNavigation } from "@react-navigation/native";
+import ParentChildInfo from "./ParentChildInfo";
 
 const ParentIdPw = () => {
   const [email, onChangeEmail] = useState("");
   const [password, onChangePassword] = useState("");
   const [passwordConfirm, onPasswordConfirm] = useState("");
+  const [showSearch, setShowSearch] = useState(false);
+
   const navigation = useNavigation();
 
   const handleBack = () => {
     navigation.goBack();
   };
+  if (showSearch) {
+    return (
+      <ParentChildInfo
+        onTermSelect={(term) => {
+          setShowSearch(false);
+          handleTermsClick(term.id);
+        }}
+        onBack={() => setShowSearch(false)}
+      />
+    );
+  }
 
   return (
     <View style={styles.outerContainer}>
@@ -178,7 +192,7 @@ const ParentIdPw = () => {
           <Text style={styles.backBtnText}>이전</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => console.log("Next")}
+          onPress={() => setShowSearch(true)}
           style={styles.nextBtn}
         >
           <Text style={styles.nextBtnText}>다음</Text>
