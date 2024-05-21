@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { GlobalStyles } from "../../../constants/styles";
 import Svg, { Path, Defs, ClipPath, Rect, G } from "react-native-svg";
 import { useNavigation } from "@react-navigation/native";
-import Login from "../../Login";
 
 const ParentSignupFinish = () => {
   const navigation = useNavigation();
-
+  const handleLoginPress = () => {
+    navigation.navigate("Login");
+  };
   return (
     <View style={styles.outerContainer}>
       <View style={styles.container}>
@@ -33,10 +34,7 @@ const ParentSignupFinish = () => {
         </Svg>
         <Text style={styles.title}>환영합니다</Text>
 
-        <TouchableOpacity
-          style={styles.nextBtn}
-          onPress={() => setShowSearch(true)}
-        >
+        <TouchableOpacity style={styles.nextBtn} onPress={handleLoginPress}>
           <Text style={styles.nextBtnText}>로그인하러 가기</Text>
         </TouchableOpacity>
       </View>

@@ -7,8 +7,12 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { GlobalStyles } from "./constants/styles";
 import ParentSignup from "./screens/Signup/Parent/ParentSignup";
+import ParentSearchCode from "./screens/Signup/Parent/ParentSearchCode";
+import ParentIdPw from "./screens/Signup/Parent/ParentIdPw";
+import ParentChildInfo from "./screens/Signup/Parent/ParentChildInfo";
+import ParentPush from "./screens/Signup/Parent/ParentPush";
+import ParentSignupFinish from "./screens/Signup/Parent/ParentSignupFinish";
 import ChildSignup from "./screens/Signup/Child/ChildSignup";
-
 const arrowLeftImage = require("./assets/arrow-left.png");
 
 const Stack = createStackNavigator();
@@ -73,6 +77,116 @@ export default function App() {
         <Stack.Screen
           name="ChildSignup"
           component={ChildSignup}
+          options={({ navigation }) => ({
+            headerShown: true,
+            headerTitle: "회원가입",
+            headerTitleStyle: { fontSize: 30, fontFamily: "Arsenal" },
+            headerTintColor: "white",
+            headerStyle: {
+              backgroundColor: GlobalStyles.colors.primary100,
+              height: 100,
+            },
+            headerLeft: () => (
+              <TouchableOpacity
+                style={styles.headerLeftContainer}
+                onPress={() => navigation.goBack()}
+              >
+                <Image source={arrowLeftImage} style={styles.arrowLeftImage} />
+              </TouchableOpacity>
+            ),
+          })}
+        />
+        <Stack.Screen
+          name="ParentSearchCode"
+          component={ParentSearchCode}
+          options={({ navigation }) => ({
+            headerShown: true,
+            headerTitle: "회원가입",
+            headerTitleStyle: { fontSize: 30, fontFamily: "Arsenal" },
+            headerTintColor: "white",
+            headerStyle: {
+              backgroundColor: GlobalStyles.colors.primary100,
+              height: 100,
+            },
+            headerLeft: () => (
+              <TouchableOpacity
+                style={styles.headerLeftContainer}
+                onPress={() => navigation.goBack()}
+              >
+                <Image source={arrowLeftImage} style={styles.arrowLeftImage} />
+              </TouchableOpacity>
+            ),
+          })}
+        />
+        <Stack.Screen
+          name="ParentIdPw"
+          component={ParentIdPw}
+          options={({ navigation }) => ({
+            headerShown: true,
+            headerTitle: "회원가입",
+            headerTitleStyle: { fontSize: 30, fontFamily: "Arsenal" },
+            headerTintColor: "white",
+            headerStyle: {
+              backgroundColor: GlobalStyles.colors.primary100,
+              height: 100,
+            },
+            headerLeft: () => (
+              <TouchableOpacity
+                style={styles.headerLeftContainer}
+                onPress={() => navigation.goBack()}
+              >
+                <Image source={arrowLeftImage} style={styles.arrowLeftImage} />
+              </TouchableOpacity>
+            ),
+          })}
+        />
+        <Stack.Screen
+          name="ParentChildInfo"
+          component={ParentChildInfo}
+          options={({ navigation }) => ({
+            headerShown: true,
+            headerTitle: "회원가입",
+            headerTitleStyle: { fontSize: 30, fontFamily: "Arsenal" },
+            headerTintColor: "white",
+            headerStyle: {
+              backgroundColor: GlobalStyles.colors.primary100,
+              height: 100,
+            },
+            headerLeft: () => (
+              <TouchableOpacity
+                style={styles.headerLeftContainer}
+                onPress={() => navigation.goBack()}
+              >
+                <Image source={arrowLeftImage} style={styles.arrowLeftImage} />
+              </TouchableOpacity>
+            ),
+          })}
+        />
+        <Stack.Screen
+          name="ParentPush"
+          component={ParentPush}
+          options={({ navigation }) => ({
+            headerShown: true,
+            headerTitle: "회원가입",
+            headerTitleStyle: { fontSize: 30, fontFamily: "Arsenal" },
+            headerTintColor: "white",
+            headerStyle: {
+              backgroundColor: GlobalStyles.colors.primary100,
+              height: 100,
+            },
+            headerLeft: () => (
+              <TouchableOpacity
+                style={styles.headerLeftContainer}
+                onPress={() => navigation.goBack()}
+              >
+                <Image source={arrowLeftImage} style={styles.arrowLeftImage} />
+              </TouchableOpacity>
+            ),
+          })}
+        />
+        <Stack.Screen
+          name="ParentSignupFinish"
+          component={ParentSignupFinish}
           options={({ navigation }) => ({
             headerShown: true,
             headerTitle: "회원가입",
