@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
-import { GlobalStyles } from "../../constants/styles";
+import { GlobalStyles } from "../../../constants/styles";
 import Svg, { Path } from "react-native-svg";
+import SearchCode from "../Parent/ParentSearchCode";
 
 function ParentSignup() {
   const [isChecked, setIsChecked] = useState(false);
@@ -11,6 +12,7 @@ function ParentSignup() {
     marketingConsent: false,
     additionalTerms: false,
   });
+  const [showSearch, setShowSearch] = useState(false);
 
   const handleCheck = () => {
     setIsChecked(!isChecked);
@@ -22,16 +24,25 @@ function ParentSignup() {
     });
   };
 
-  const handleNext = () => {
-    // 다음으로 진행하는 함수를 구현하세요
-  };
   const handleTermsClick = (term) => {
     setTermsChecked((prevTermsChecked) => ({
       ...prevTermsChecked,
       [term]: !prevTermsChecked[term],
     }));
   };
+  const allTermsAgreed = Object.values(termsChecked).every(Boolean);
 
+  if (showSearch) {
+    return (
+      <SearchCode
+        onTermSelect={(term) => {
+          setShowSearch(false);
+          handleTermsClick(term.id);
+        }}
+        onBack={() => setShowSearch(false)}
+      />
+    );
+  }
   return (
     <View style={styles.outerContainer}>
       <View style={styles.container}>
@@ -101,7 +112,9 @@ function ParentSignup() {
           <Text style={styles.text}>[필수] TOGEDU 이용 약관</Text>
         </View>
         <View style={styles.textContainer}>
-          <TouchableOpacity onPress={() => handleTermsClick("marketingConsent")}>
+          <TouchableOpacity
+            onPress={() => handleTermsClick("marketingConsent")}
+          >
             <Svg
               xmlns="http://www.w3.org/2000/svg"
               width="25"
@@ -175,7 +188,10 @@ function ParentSignup() {
           </TouchableOpacity>
           <Text style={styles.text}>[선택] 개인정보 수집 및 이용 동의</Text>
         </View>
-        <TouchableOpacity onPress={handleNext} style={styles.nextBtn}>
+        <TouchableOpacity
+          onPress={() => setShowSearch(true)}
+          style={styles.nextBtn}
+        >
           <Text style={styles.nextBtnText}>다음</Text>
         </TouchableOpacity>
       </View>
@@ -192,7 +208,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
   },
@@ -257,7 +272,8 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 170,
+    position: "absolute",
+    bottom: 31,
   },
   nextBtnText: {
     fontSize: 15,

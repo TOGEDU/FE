@@ -6,8 +6,8 @@ import Signup from "./screens/Signup/Signup";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { GlobalStyles } from "./constants/styles";
-import ParentSignup from "./screens/Signup/ParentSignup";
-import ChildSignup from "./screens/Signup/ChildSignup";
+import ParentSignup from "./screens/Signup/Parent/ParentSignup";
+import ChildSignup from "./screens/Signup/Child/ChildSignup";
 
 const arrowLeftImage = require("./assets/arrow-left.png");
 
