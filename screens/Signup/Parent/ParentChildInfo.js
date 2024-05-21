@@ -9,7 +9,6 @@ import {
 import { GlobalStyles } from "../../../constants/styles";
 import Svg, { Path } from "react-native-svg";
 import { useNavigation } from "@react-navigation/native";
-import ParentPush from "./ParentPush";
 
 const ParentChildInfo = () => {
   const [text, onChangeText] = useState("");
@@ -19,17 +18,10 @@ const ParentChildInfo = () => {
   const handleBack = () => {
     navigation.goBack();
   };
-  if (showSearch) {
-    return (
-      <ParentPush
-        onTermSelect={(term) => {
-          setShowSearch(false);
-          handleTermsClick(term.id);
-        }}
-        onBack={() => setShowSearch(false)}
-      />
-    );
+  const handleNext=()=>{
+    navigation.navigate("ParentPush")
   }
+  
   return (
     <View style={styles.outerContainer}>
       <View style={styles.container}>
@@ -86,7 +78,7 @@ const ParentChildInfo = () => {
           <Text style={styles.backBtnText}>이전</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => setShowSearch(true)}
+          onPress={handleNext}
           style={styles.nextBtn}
         >
           <Text style={styles.nextBtnText}>다음</Text>

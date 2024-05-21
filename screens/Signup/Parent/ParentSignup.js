@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { GlobalStyles } from "../../../constants/styles";
 import Svg, { Path } from "react-native-svg";
-import ParentSearchCode from "../Parent/ParentSearchCode";
+import { useNavigation } from "@react-navigation/native";
 
 function ParentSignup() {
   const [isChecked, setIsChecked] = useState(false);
@@ -12,7 +12,7 @@ function ParentSignup() {
     marketingConsent: false,
     additionalTerms: false,
   });
-  const [showSearch, setShowSearch] = useState(false);
+  const navigation = useNavigation();
 
   const handleCheck = () => {
     setIsChecked(!isChecked);
@@ -32,17 +32,9 @@ function ParentSignup() {
   };
   const allTermsAgreed = Object.values(termsChecked).every(Boolean);
 
-  if (showSearch) {
-    return (
-      <ParentSearchCode
-        onTermSelect={(term) => {
-          setShowSearch(false);
-          handleTermsClick(term.id);
-        }}
-        onBack={() => setShowSearch(false)}
-      />
-    );
-  }
+  const handleNext = () => {
+    navigation.navigate("ParentSearchCode");
+  };
   return (
     <View style={styles.outerContainer}>
       <View style={styles.container}>
@@ -190,8 +182,16 @@ function ParentSignup() {
           <Text style={styles.text}>[선택] 개인정보 수집 및 이용 동의</Text>
         </View>
         <TouchableOpacity
-          onPress={() => setShowSearch(true)}
-          style={styles.nextBtn}
+          onPress={() => {
+            if (allTermsAgreed) {
+              handleNext();
+            }
+          }}
+          style={[
+            styles.nextBtn,
+            !allTermsAgreed && { backgroundColor: "#E3E3E3" },
+          ]}
+          disabled={!allTermsAgreed}
         >
           <Text style={styles.nextBtnText}>다음</Text>
         </TouchableOpacity>
