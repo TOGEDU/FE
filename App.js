@@ -1,6 +1,6 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, Image, TouchableOpacity, SafeAreaView } from "react-native";
 import Login from "./screens/Login";
 import Signup from "./screens/Signup/Signup";
 import { NavigationContainer } from "@react-navigation/native";
@@ -20,10 +20,12 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <StatusBar
-        backgroundCorlor={GlobalStyles.colors.primary100}
-        style="dark"
-      />
+      <SafeAreaView style={styles.topSafeArea}>
+        <StatusBar
+          backgroundCorlor={GlobalStyles.colors.primary100}
+          style="dark"
+        />
+      </SafeAreaView>
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
@@ -212,6 +214,9 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+  topSafeArea: {
+    backgroundColor: GlobalStyles.colors.primary100,
+  },
   container: {
     flex: 1,
     backgroundColor: "#fff",
