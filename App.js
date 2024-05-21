@@ -53,7 +53,7 @@ export default function App() {
           component={ParentSignup}
           options={({ navigation }) => ({
             headerShown: true,
-            headerTitle: "Signup",
+            headerTitle: "회원가입",
             headerTitleStyle: { fontSize: 30, fontFamily: "Arsenal" },
             headerTintColor: "white",
             headerStyle: {
@@ -75,7 +75,7 @@ export default function App() {
           component={ChildSignup}
           options={({ navigation }) => ({
             headerShown: true,
-            headerTitle: "Signup",
+            headerTitle: "회원가입",
             headerTitleStyle: { fontSize: 30, fontFamily: "Arsenal" },
             headerTintColor: "white",
             headerStyle: {

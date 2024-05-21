@@ -10,11 +10,23 @@ import ModalDropdown from "react-native-modal-dropdown";
 import { GlobalStyles } from "../../../constants/styles";
 import Svg, { Path } from "react-native-svg";
 import { useNavigation } from "@react-navigation/native";
-
+import ParentSignupFinish from "./ParentSignupFinish";
 const ParentPush = () => {
   const [selectedTime, setSelectedTime] = useState("오전 09:00");
   const navigation = useNavigation();
+  const [showSearch, setShowSearch] = useState(false);
 
+  if (showSearch) {
+    return (
+      <ParentSignupFinish
+        onTermSelect={(term) => {
+          setShowSearch(false);
+          handleTermsClick(term.id);
+        }}
+        onBack={() => setShowSearch(false)}
+      />
+    );
+  }
   const handleBack = () => {
     navigation.goBack();
   };
@@ -87,7 +99,7 @@ const ParentPush = () => {
           <Text style={styles.backBtnText}>이전</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => console.log("회원가입 완료")}
+          onPress={() => setShowSearch(true)}
           style={styles.nextBtn}
         >
           <Text style={styles.nextBtnText}>회원가입 완료</Text>
