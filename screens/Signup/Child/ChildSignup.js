@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
-import { GlobalStyles } from "../../constants/styles";
 import Svg, { Path } from "react-native-svg";
-
+import { GlobalStyles } from "../../../constants/styles";
 function ChildSignup() {
     const [isChecked, setIsChecked] = useState(false);
     const [termsChecked, setTermsChecked] = useState({
