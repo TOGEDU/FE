@@ -8,16 +8,28 @@ import {
 } from "react-native";
 import { GlobalStyles } from "../../../constants/styles";
 import Svg, { Path } from "react-native-svg";
-import { useNavigation } from '@react-navigation/native'; 
+import { useNavigation } from "@react-navigation/native";
+import ParentIdPw from "./ParentIdPw";
 
 const SearchCode = () => {
   const [text, onChangeText] = useState("");
-  const navigation = useNavigation(); 
+  const navigation = useNavigation();
+  const [showSearch, setShowSearch] = useState(false);
 
   const handleBack = () => {
-    navigation.goBack(); 
+    navigation.goBack();
   };
-
+  if (showSearch) {
+    return (
+      <ParentIdPw
+        onTermSelect={(term) => {
+          setShowSearch(false);
+          handleTermsClick(term.id);
+        }}
+        onBack={() => setShowSearch(false)}
+      />
+    );
+  }
   return (
     <View style={styles.outerContainer}>
       <View style={styles.container}>
@@ -30,6 +42,8 @@ const SearchCode = () => {
           <View style={styles.lineColor}></View>
           <View style={styles.line}></View>
           <View style={styles.line}></View>
+          <View style={styles.line}></View>
+
         </View>
         <View style={styles.inputContainer}>
           <Svg
@@ -79,7 +93,7 @@ const SearchCode = () => {
           <Text style={styles.backBtnText}>이전</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => console.log("Next")}
+          onPress={() => setShowSearch(true)}
           style={styles.nextBtn}
         >
           <Text style={styles.nextBtnText}>다음</Text>
@@ -121,14 +135,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   lineColor: {
-    width: 85,
+    width: 68,
     height: 4,
     borderRadius: 10,
     marginHorizontal: 4,
     backgroundColor: GlobalStyles.colors.primary100,
   },
   line: {
-    width: 85,
+    width: 68,
     height: 4,
     borderRadius: 10,
     marginHorizontal: 4,

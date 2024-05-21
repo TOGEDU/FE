@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { GlobalStyles } from "../../../constants/styles";
 import Svg, { Path } from "react-native-svg";
-import SearchCode from "../Parent/ParentSearchCode";
+import ParentSearchCode from "../Parent/ParentSearchCode";
 
 function ParentSignup() {
   const [isChecked, setIsChecked] = useState(false);
@@ -34,7 +34,7 @@ function ParentSignup() {
 
   if (showSearch) {
     return (
-      <SearchCode
+      <ParentSearchCode
         onTermSelect={(term) => {
           setShowSearch(false);
           handleTermsClick(term.id);
@@ -51,6 +51,7 @@ function ParentSignup() {
         </Text>
         <View style={styles.lineContainer}>
           <View style={styles.lineColor}></View>
+          <View style={styles.line}></View>
           <View style={styles.line}></View>
           <View style={styles.line}></View>
           <View style={styles.line}></View>
@@ -221,14 +222,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   lineColor: {
-    width: 85,
+    width: 68,
     height: 4,
     borderRadius: 10,
     marginHorizontal: 4,
     backgroundColor: GlobalStyles.colors.primary100,
   },
   line: {
-    width: 85,
+    width: 68,
     height: 4,
     borderRadius: 10,
     marginHorizontal: 4,
