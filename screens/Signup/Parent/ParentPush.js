@@ -13,7 +13,7 @@ const ParentPush = () => {
     navigation.goBack();
   };
   const handleNext = () => {
-    navigation.navigate("ParentSignupFinish");
+    navigation.navigate("SignupFinish");
   };
   const times = [
     "오전 08:00",

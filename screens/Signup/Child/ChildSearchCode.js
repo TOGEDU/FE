@@ -10,7 +10,7 @@ import { GlobalStyles } from "../../../constants/styles";
 import Svg, { Path, G, ClipPath, Rect, Defs } from "react-native-svg";
 import { useNavigation } from "@react-navigation/native";
 
-const ParentSearchCode = () => {
+const ChildSearchCode = () => {
   const [text, onChangeText] = useState("");
   const [isValidCode, setIsValidCode] = useState(false);
   const navigation = useNavigation();
@@ -19,7 +19,7 @@ const ParentSearchCode = () => {
     navigation.goBack();
   };
   const handleNext = () => {
-    navigation.navigate("ParentIdPw");
+    navigation.navigate("ChildNameBirth");
   };
   const handleSearch = () => {
     if (text === "1234") {
@@ -32,14 +32,13 @@ const ParentSearchCode = () => {
   return (
     <View style={styles.outerContainer}>
       <View style={styles.container}>
-        <Text style={styles.title}>코드를 입력해 주세요.</Text>
+        <Text style={styles.title}>부모님을 찾아주세요.</Text>
         <Text style={styles.subtitle}>
-          보험에 가입할 때 받은 고유 코드를 {"\n"}입력해 주세요.
+          부모님의 계정에서 고유 코드를 {"\n"}찾을 수 있습니다.
         </Text>
         <View style={styles.lineContainer}>
           <View style={styles.lineColor}></View>
           <View style={styles.lineColor}></View>
-          <View style={styles.line}></View>
           <View style={styles.line}></View>
           <View style={styles.line}></View>
         </View>
@@ -180,7 +179,7 @@ const styles = StyleSheet.create({
     backgroundColor: GlobalStyles.colors.primary100,
   },
   line: {
-    width: 68,
+    width: 85,
     height: 4,
     borderRadius: 10,
     marginHorizontal: 4,
@@ -252,4 +251,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ParentSearchCode;
+export default ChildSearchCode;
