@@ -8,7 +8,7 @@ import {
   Image,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import LOGO from "../assets/logo1.png";
+import LOGO from "../assets/logo.png";
 
 export default function Login() {
   const navigation = useNavigation();
