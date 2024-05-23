@@ -18,6 +18,9 @@ export default function Login() {
   const navigateToSignup = () => {
     navigation.navigate("Signup");
   };
+  const navigateToMainPage = () => {
+    navigation.navigate("MainPage");
+  };
   return (
     <View style={styles.container}>
       <Image source={LOGO} style={styles.logo} />
@@ -110,7 +113,7 @@ export default function Login() {
         </Svg>
       </View>
 
-      <TouchableOpacity style={styles.loginButton}>
+      <TouchableOpacity style={styles.loginButton} onPress={navigateToMainPage}>
         <Text style={styles.buttonText}>로그인</Text>
       </TouchableOpacity>
 
