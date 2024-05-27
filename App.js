@@ -4,7 +4,6 @@ import {
   StyleSheet,
   TouchableOpacity,
   SafeAreaView,
-  Modal,
   View,
   Text,
 } from "react-native";
@@ -12,14 +11,12 @@ import Svg, {
   Path,
   G,
   ClipPath,
-  LinearGradient,
   Circle,
   Rect,
   Stop,
   Defs,
 } from "react-native-svg";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Ionicons } from "@expo/vector-icons";
 
 import Login from "./screens/Login";
 import Signup from "./screens/Signup/Signup";
@@ -71,7 +68,6 @@ function DiaryIcon({ color }) {
       height="30"
       viewBox="0 0 30 30"
       fill="none"
-      style={styles.diaryIcon}
     >
       <Path
         fillRule="evenodd"
@@ -91,7 +87,6 @@ function VoiceIcon({ color }) {
       height="30"
       viewBox="0 0 30 30"
       fill="none"
-      style={styles.voiceIcon}
     >
       <Path
         fillRule="evenodd"
@@ -139,25 +134,8 @@ function MyPageIcon({ color }) {
     </Svg>
   );
 }
-function FloatingActionButton({ onPress, isOpen }) {
-  return (
-    <TouchableOpacity style={styles.fab} onPress={onPress}>
-      <Ionicons name={isOpen ? "close" : "add"} size={30} color="white" />
-    </TouchableOpacity>
-  );
-}
-
-function MenuItem({ title, onPress, style }) {
-  return (
-    <TouchableOpacity style={[styles.menuItem, style]} onPress={onPress}>
-      <Text style={styles.menuItemText}>{title}</Text>
-    </TouchableOpacity>
-  );
-}
 
 function BottomTabNavigator() {
-  const [isMenuOpen, setMenuOpen] = useState(false);
-
   return (
     <>
       <BottomTabs.Navigator
@@ -191,51 +169,10 @@ function BottomTabNavigator() {
         })}
       >
         <BottomTabs.Screen name="홈" component={MainPage} />
-        <BottomTabs.Screen
-          name="일기 기록"
-          component={DiaryScreen}
-          options={{ tabBarLabelStyle: { marginRight: 40 } }}
-        />
-        <BottomTabs.Screen
-          name="음성 기록"
-          component={VoiceScreen}
-          options={{ tabBarLabelStyle: { marginLeft: 40 } }}
-        />
+        <BottomTabs.Screen name="일기 기록" component={DiaryScreen} />
+        <BottomTabs.Screen name="음성 기록" component={VoiceScreen} />
         <BottomTabs.Screen name="마이 페이지" component={MyPageScreen} />
       </BottomTabs.Navigator>
-      <FloatingActionButton
-        onPress={() => setMenuOpen(!isMenuOpen)}
-        isOpen={isMenuOpen}
-      />
-      <Modal
-        visible={isMenuOpen}
-        transparent={true}
-        animationType="fade"
-        onRequestClose={() => setMenuOpen(false)}
-      >
-        <TouchableOpacity
-          style={styles.modalBackground}
-          activeOpacity={1}
-          onPress={() => setMenuOpen(false)}
-        >
-          <View style={styles.menuContainer}>
-            <MenuItem
-              title="오늘의 질문"
-              onPress={() => console.log("오늘의 질문")}
-              style={styles.firstMenuItem}
-            />
-            <MenuItem
-              title="TTS 녹음"
-              onPress={() => console.log("TTS 녹음")}
-            />
-            <MenuItem
-              title="육아 일기"
-              onPress={() => console.log("육아 일기")}
-              style={styles.lastMenuItem}
-            />
-          </View>
-        </TouchableOpacity>
-      </Modal>
     </>
   );
 }
@@ -725,54 +662,5 @@ const styles = StyleSheet.create({
   },
   maindateicon: {
     marginRight: 24,
-  },
-  diaryIcon: {
-    marginRight: 40,
-  },
-  voiceIcon: {
-    marginLeft: 40,
-  },
-  fab: {
-    position: "absolute",
-    bottom: 60,
-    alignSelf: "center",
-    backgroundColor: "#79B669",
-    width: 55,
-    height: 55,
-    borderRadius: 40,
-    justifyContent: "center",
-    alignItems: "center",
-    elevation: 6,
-  },
-  modalBackground: {
-    flex: 1,
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  menuContainer: {
-    backgroundColor: "white",
-    borderRadius: 20,
-    paddingVertical: 20,
-    paddingHorizontal: 30,
-    width: 200,
-  },
-  menuItem: {
-    paddingVertical: 15,
-    alignItems: "center",
-  },
-  menuItemText: {
-    fontSize: 16,
-    color: "#333",
-  },
-  firstMenuItem: {
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: "#E5E5E5",
-  },
-  lastMenuItem: {
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
   },
 });
