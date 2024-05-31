@@ -1,21 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { StatusBar } from "expo-status-bar";
-import {
-  StyleSheet,
-  TouchableOpacity,
-  SafeAreaView,
-  View,
-  Text,
-} from "react-native";
-import Svg, {
-  Path,
-  G,
-  ClipPath,
-  Circle,
-  Rect,
-  Stop,
-  Defs,
-} from "react-native-svg";
+import { StyleSheet, TouchableOpacity, SafeAreaView } from "react-native";
+import Svg, { Path, Rect } from "react-native-svg";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import Login from "./screens/Login";
@@ -166,6 +152,8 @@ function BottomTabNavigator() {
           },
           tabBarActiveTintColor: "#79B669",
           tabBarInactiveTintColor: "#C4C4C4",
+          tabBarActiveBackgroundColor: "white",
+          tabBarInactiveBackgroundColor: "white",
         })}
       >
         <BottomTabs.Screen name="홈" component={MainPage} />
@@ -186,6 +174,7 @@ export default function App() {
           style="dark"
         />
       </SafeAreaView>
+
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
