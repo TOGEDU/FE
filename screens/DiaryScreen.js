@@ -71,7 +71,7 @@ export default function DiaryScreen() {
               borderWidth: 1,
               borderRadius: 15,
               borderColor: "#65A102",
-              height: 350,
+              height: 380,
               width: 350,
               marginTop: 26,
               marginBottom: 47,

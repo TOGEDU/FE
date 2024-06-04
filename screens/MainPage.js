@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, StyleSheet, View, Image } from "react-native";
+import { Text, StyleSheet, View, Image, TouchableOpacity } from "react-native";
 import { GlobalStyles } from "../constants/styles";
 import Svg, {
   Path,
@@ -20,7 +20,11 @@ import Svg, {
 } from "react-native-svg";
 import minilogo from "../assets/minilogo.png";
 
-function MainPage() {
+function MainPage({ navigation }) {
+  const handleNavigate = () => {
+    navigation.navigate("TodayQuestion");
+  };
+
   return (
     <View style={styles.outerContainer}>
       <View style={styles.container}>
@@ -30,9 +34,9 @@ function MainPage() {
           <Image style={styles.img} source={minilogo} />
           <Text style={styles.boxText}>똑똑! 투게두가 보내는 오늘의 질문</Text>
         </View>
-        <View style={styles.qbox}>
+        <TouchableOpacity style={styles.qbox} onPress={handleNavigate}>
           <Text style={styles.qboxText}>어쩌구저쩌구</Text>
-        </View>
+        </TouchableOpacity>
         <View style={styles.miniboxContainer}>
           <View style={styles.minibox}>
             <Svg
