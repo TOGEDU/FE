@@ -7,11 +7,8 @@ import {
   TextInput,
   TouchableOpacity,
   ScrollView,
-  Modal,
-  FlatList,
 } from "react-native";
 import { GlobalStyles } from "../constants/styles";
-import { Picker } from "@react-native-picker/picker";
 import { Svg, Path } from "react-native-svg";
 const formatDate = (date) => {
   const days = [
@@ -62,98 +59,96 @@ export default function DiaryScreen() {
     setIconRotation(dropdownVisible ? 0 : 180);
   };
   return (
-    <View style={styles.outerContainer}>
-      <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <View style={styles.container}>
-          <Text style={styles.title}>날짜 선택하기</Text>
-          <Calendar
-            style={{
-              borderWidth: 1,
-              borderRadius: 15,
-              borderColor: "#65A102",
-              height: 380,
-              width: 350,
-              marginTop: 26,
-              marginBottom: 47,
-            }}
-            onDayPress={(day) => {
-              setSelected(day.dateString);
-            }}
-            markedDates={{
-              [selected]: {
-                selected: true,
-                disableTouchEvent: true,
-                selectedDotColor: GlobalStyles.colors.primary100,
-              },
-            }}
-            theme={{
-              selectedDayBackgroundColor: GlobalStyles.colors.primary100,
-              todayTextColor: GlobalStyles.colors.primary100,
-              selectedDayTextColor: "#ffffff",
-              dayTextColor: "black",
-              arrowColor: "black",
-              textMonthFontWeight: "bold",
-              textMonthFontSize: 24,
-              textDayHeaderFontColor: "black",
-            }}
-          />
-          <Text style={styles.date}>{displayDate}</Text>
-          <View style={styles.dropdownWrapper}>
-            <TouchableOpacity
-              style={styles.dropdownContainer}
-              onPress={toggleDropdown}
+    <ScrollView style={styles.outerContainer}>
+      <View style={styles.container}>
+        <Text style={styles.title}>날짜 선택하기</Text>
+        <Calendar
+          style={{
+            borderWidth: 1,
+            borderRadius: 15,
+            borderColor: "#65A102",
+            height: 380,
+            width: 350,
+            marginTop: 26,
+            marginBottom: 47,
+          }}
+          onDayPress={(day) => {
+            setSelected(day.dateString);
+          }}
+          markedDates={{
+            [selected]: {
+              selected: true,
+              disableTouchEvent: true,
+              selectedDotColor: GlobalStyles.colors.primary100,
+            },
+          }}
+          theme={{
+            selectedDayBackgroundColor: GlobalStyles.colors.primary100,
+            todayTextColor: GlobalStyles.colors.primary100,
+            selectedDayTextColor: "#ffffff",
+            dayTextColor: "black",
+            arrowColor: "black",
+            textMonthFontWeight: "bold",
+            textMonthFontSize: 24,
+            textDayHeaderFontColor: "black",
+          }}
+        />
+        <Text style={styles.date}>{displayDate}</Text>
+        <View style={styles.dropdownWrapper}>
+          <TouchableOpacity
+            style={styles.dropdownContainer}
+            onPress={toggleDropdown}
+          >
+            <Text style={styles.dropdownText}>{dropdownValue}</Text>
+            <Svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="11"
+              height="8"
+              viewBox="0 0 11 8"
+              fill="none"
+              style={{ transform: [{ rotate: `${iconRotation}deg` }] }}
             >
-              <Text style={styles.dropdownText}>{dropdownValue}</Text>
-              <Svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="11"
-                height="8"
-                viewBox="0 0 11 8"
-                fill="none"
-                style={{ transform: [{ rotate: `${iconRotation}deg` }] }}
-              >
-                <Path d="M5.5 8L10.2631 0.5H0.73686L5.5 8Z" fill="#79B669" />
-              </Svg>
-            </TouchableOpacity>
-
-            {dropdownVisible && (
-              <View style={styles.dropdownMenu}>
-                {dropdownItems.map((item, index) => (
-                  <TouchableOpacity
-                    key={index}
-                    style={styles.dropdownItem}
-                    onPress={() => {
-                      setDropdownValue(item);
-                      setDropdownVisible(false);
-                    }}
-                  >
-                    <Text style={styles.dropdownItemText}>{item}</Text>
-                  </TouchableOpacity>
-                ))}
-              </View>
-            )}
-          </View>
-
-          <TouchableOpacity style={styles.btn} onPress={() => {}}>
-            <Text style={styles.btnText}>사진 첨부하기</Text>
+              <Path d="M5.5 8L10.2631 0.5H0.73686L5.5 8Z" fill="#79B669" />
+            </Svg>
           </TouchableOpacity>
-          <Text style={styles.filename}>파일명</Text>
 
-          <TouchableOpacity style={styles.diaryBox} onPress={() => {}}>
-            <TextInput
-              style={styles.diaryInput}
-              multiline
-              placeholder="일기를 작성해 주세요."
-              value={diaryText}
-              onChangeText={(text) => setDiaryText(text)}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.wrbtn} onPress={() => {}}>
-            <Text style={styles.wrbtnText}>기록하기</Text>
-          </TouchableOpacity>
+          {dropdownVisible && (
+            <View style={styles.dropdownMenu}>
+              {dropdownItems.map((item, index) => (
+                <TouchableOpacity
+                  key={index}
+                  style={styles.dropdownItem}
+                  onPress={() => {
+                    setDropdownValue(item);
+                    setDropdownVisible(false);
+                  }}
+                >
+                  <Text style={styles.dropdownItemText}>{item}</Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+          )}
         </View>
-      </ScrollView>
-    </View>
+
+        <TouchableOpacity style={styles.btn} onPress={() => {}}>
+          <Text style={styles.btnText}>사진 첨부하기</Text>
+        </TouchableOpacity>
+        <Text style={styles.filename}>파일명</Text>
+
+        <TouchableOpacity style={styles.diaryBox} onPress={() => {}}>
+          <TextInput
+            style={styles.diaryInput}
+            multiline
+            placeholder="일기를 작성해 주세요."
+            value={diaryText}
+            onChangeText={(text) => setDiaryText(text)}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.wrbtn} onPress={() => {}}>
+          <Text style={styles.wrbtnText}>기록하기</Text>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
   );
 }
 
@@ -162,7 +157,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: GlobalStyles.colors.primary100,
   },
-  scrollContainer: {},
   container: {
     flex: 1,
     backgroundColor: "#fff",

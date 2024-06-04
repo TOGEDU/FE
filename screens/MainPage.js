@@ -3,18 +3,8 @@ import { Text, StyleSheet, View, Image, TouchableOpacity } from "react-native";
 import { GlobalStyles } from "../constants/styles";
 import Svg, {
   Path,
-  G,
-  ClipPath,
-  Filter,
-  FeFlood,
-  FeColorMatrix,
-  FeOffset,
-  FeGaussianBlur,
-  FeComposite,
-  FeBlend,
   LinearGradient,
   Circle,
-  Rect,
   Stop,
   Defs,
 } from "react-native-svg";
