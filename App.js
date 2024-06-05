@@ -378,7 +378,6 @@ export default function App() {
                 </Svg>
               </TouchableOpacity>
             ),
-            tabBar: () => <BottomTabNavigator />,
           })}
         />
         <Stack.Screen
@@ -461,7 +460,6 @@ export default function App() {
                 </Svg>
               </TouchableOpacity>
             ),
-            tabBar: () => <BottomTabNavigator />,
           })}
         />
 

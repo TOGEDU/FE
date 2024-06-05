@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     paddingHorizontal: 20,
-    paddingTop: 28,
+    paddingTop: 49,
   },
   box: {
     flexDirection: "row",
@@ -148,6 +148,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 20,
     marginBottom: 9,
+    marginTop: 20,
   },
   wrbtnText: {
     color: "#fff",
