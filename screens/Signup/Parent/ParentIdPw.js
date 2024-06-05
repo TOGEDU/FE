@@ -29,7 +29,7 @@ const ParentIdPw = () => {
       <View style={styles.container}>
         <Text style={styles.title}>OOO님 반갑습니다!</Text>
         <Text style={styles.subtitle}>
-          TOGEDU에 로그인할 때 사용할 {"\n"}아이디와 비밀번호를 입력해 주세요.
+          TOGEDU에 로그인할 때 사용할 {"\n"}이메일과 비밀번호를 입력해 주세요.
         </Text>
         <View style={styles.lineContainer}>
           <View style={styles.lineColor}></View>
