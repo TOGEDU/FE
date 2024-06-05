@@ -41,7 +41,6 @@ function TodayQuestion({ navigation }) {
             />
           </View>
         </View>
-        <Text style={styles.editText}>수정</Text>
         <TouchableOpacity style={styles.wrbtn} onPress={handleNavigate}>
           <Text style={styles.wrbtnText}>기록하기</Text>
         </TouchableOpacity>
@@ -140,14 +139,7 @@ const styles = StyleSheet.create({
     fontSize: 17,
     color: "#878282",
   },
-  editText: {
-    fontSize: 20,
-    color: "#7E7E7E",
-    marginTop: 11,
-    marginBottom: 11,
-    marginRight: 10,
-    alignSelf: "flex-end",
-  },
+
   wrbtn: {
     backgroundColor: GlobalStyles.colors.primary100,
     width: 343,
