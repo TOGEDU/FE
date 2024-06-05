@@ -1,9 +1,8 @@
-// ProgressBar.js
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, Button } from "react-native";
 import { AnimatedCircularProgress } from "react-native-circular-progress";
 
-const ProgressBar = ({ progress }) => {
+const ProgressBar = ({ progress, onButtonPress }) => {
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
@@ -27,8 +26,13 @@ const ProgressBar = ({ progress }) => {
           </View>
         )}
       </AnimatedCircularProgress>
+
       <View style={styles.buttonContainer}>
-        <Text style={styles.buttonText}>기록 보기</Text>
+        <Button
+          title="기록 보기"
+          onPress={onButtonPress} // 여기서 버튼 클릭 이벤트를 전달합니다.
+          style={styles.buttonText}
+        />
       </View>
     </View>
   );

@@ -1,42 +1,27 @@
 // CompletedRecordingsScreen.js
 import React from "react";
-import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
-import { useRoute } from "@react-navigation/native";
+import { View, Text, StyleSheet } from "react-native";
 
-export default function CompletedRecordingsScreen() {
-  const route = useRoute();
-  const { completedRecordings } = route.params;
-
+const CompletedRecordingsScreen = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={styles.scrollView}>
-        {completedRecordings.map((item, index) => (
-          <View key={index} style={styles.recordingItem}>
-            <Text style={styles.recordingText}>{item}</Text>
-          </View>
-        ))}
-      </ScrollView>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <Text style={styles.title}>완료된 음성 기록</Text>
+      {/* 이 곳에 완료된 기록을 표시하는 컴포넌트를 추가하세요 */}
+    </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
-    backgroundColor: "#f5f5f5",
+    justifyContent: "center",
+    alignItems: "center",
   },
-  scrollView: {
-    marginTop: 16,
-  },
-  recordingItem: {
-    backgroundColor: "#e0f2f1",
-    padding: 16,
-    marginVertical: 8,
-    borderRadius: 8,
-  },
-  recordingText: {
-    fontSize: 16,
-    color: "#4caf50",
+  title: {
+    fontSize: 30,
+    fontWeight: "bold",
+    marginBottom: 20,
   },
 });
+
+export default CompletedRecordingsScreen;

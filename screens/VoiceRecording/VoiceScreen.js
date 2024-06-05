@@ -1,14 +1,10 @@
-// VoiceScreen.js
-
 import React, { useState } from "react";
 import {
-  SafeAreaView,
   ScrollView,
   StyleSheet,
+  SafeAreaView,
   Text,
   TouchableOpacity,
-  View,
-  Button,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import ProgressBar from "./ProgressBar";
@@ -16,6 +12,9 @@ import ProgressBar from "./ProgressBar";
 export default function VoiceScreen() {
   const [progress, setProgress] = useState(45);
   const [pendingRecordings, setPendingRecordings] = useState([
+    "배고파배고파너무배고파",
+    "서비스 이용약관이라네요",
+    "자주 묻는 질문도 있어요",
     "배고파배고파너무배고파",
     "서비스 이용약관이라네요",
     "자주 묻는 질문도 있어요",
@@ -31,33 +30,38 @@ export default function VoiceScreen() {
     );
   };
 
+  const handleRecordingPress = (item) => {
+    navigation.navigate("RecordingScreen", {
+      item,
+      onRecordComplete: handleRecordComplete,
+    });
+  };
+
+  const handleViewCompletedRecordings = () => {
+    navigation.navigate("CompletedRecordingsScreen", {
+      completedRecordings,
+    });
+  };
+
   return (
-    <SafeAreaView style={styles.container}>
-      <ProgressBar progress={progress} />
-      <ScrollView contentContainerStyle={styles.scrollView}>
+    <ScrollView contentContainerStyle={styles.scrollView}>
+      <SafeAreaView style={styles.container}>
+        <ProgressBar
+          progress={progress}
+          onButtonPress={handleViewCompletedRecordings} // 올바른 prop 전달
+        />
+
         {pendingRecordings.map((item, index) => (
           <TouchableOpacity
             key={index}
             style={styles.recordingItem}
-            onPress={() =>
-              navigation.navigate("RecordingScreen", {
-                item,
-              })
-            }
+            onPress={() => handleRecordingPress(item)}
           >
             <Text style={styles.recordingText}>{item}</Text>
           </TouchableOpacity>
         ))}
-      </ScrollView>
-      <Button
-        title="기록 보기"
-        onPress={() =>
-          navigation.navigate("CompletedRecordingsScreen", {
-            completedRecordings,
-          })
-        }
-      />
-    </SafeAreaView>
+      </SafeAreaView>
+    </ScrollView>
   );
 }
 
@@ -67,17 +71,16 @@ const styles = StyleSheet.create({
     padding: 16,
     backgroundColor: "#f5f5f5",
   },
-  scrollView: {
-    marginTop: 16,
-  },
+  scrollView: {},
   recordingItem: {
-    backgroundColor: "#e0f2f1",
-    padding: 16,
+    marginHorizontal: 20,
+    backgroundColor: "#DAEDD5",
+    padding: 26,
     marginVertical: 8,
-    borderRadius: 8,
+    borderRadius: 15,
   },
   recordingText: {
-    fontSize: 16,
-    color: "#4caf50",
+    fontSize: 17,
+    color: "black",
   },
 });
