@@ -21,7 +21,7 @@ import ChildNameBirth from "./screens/Signup/Child/ChildNameBirth";
 import ChildIdPw from "./screens/Signup/Child/ChildIdPw";
 import MainPage from "./screens/MainPage";
 import DiaryScreen from "./screens/DiaryScreen";
-import VoiceScreen from "./screens/VoiceScreen";
+import VoiceScreen from "./screens/VoiceRecording/VoiceScreen";
 import MyPageScreen from "./screens/MyPageScreen";
 
 const Stack = createStackNavigator();
