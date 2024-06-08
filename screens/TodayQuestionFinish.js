@@ -3,6 +3,9 @@ import { GlobalStyles } from "../constants/styles";
 import { Svg, Path, G, Defs, Rect, ClipPath } from "react-native-svg";
 
 function TodayQuesitonFinish() {
+  const handleNavigate = () => {
+    navigation.navigate("MainPage");
+  };
   return (
     <View style={styles.outerContainer}>
       <View style={styles.container}>
@@ -26,7 +29,7 @@ function TodayQuesitonFinish() {
           </Defs>
         </Svg>
         <Text style={styles.text}>기록되었습니다!</Text>
-        <TouchableOpacity style={styles.btn}>
+        <TouchableOpacity style={styles.btn} onPress={handleNavigate}>
           <Text style={styles.btnText}>확인</Text>
         </TouchableOpacity>
       </View>
@@ -67,7 +70,6 @@ const styles = StyleSheet.create({
   btnText: {
     color: "#fff",
     fontSize: 18,
-    
   },
 });
 
