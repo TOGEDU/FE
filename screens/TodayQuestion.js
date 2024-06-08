@@ -148,6 +148,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 20,
     marginBottom: 9,
+    marginTop: 20,
   },
   wrbtnText: {
     color: "#fff",

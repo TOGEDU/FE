@@ -15,9 +15,9 @@ export default function VoiceScreen() {
     "배고파배고파너무배고파",
     "서비스 이용약관이라네요",
     "자주 묻는 질문도 있어요",
-    "배고파배고파너무배고파",
-    "서비스 이용약관이라네요",
-    "자주 묻는 질문도 있어요",
+    "집에 가고 싶다고 생각해",
+    "저녁 메뉴 뭐 먹을지 고민",
+    "아메리카노는 이제 좀 질려",
   ]);
   const [completedRecordings, setCompletedRecordings] = useState([]);
   const navigation = useNavigation();
@@ -48,7 +48,7 @@ export default function VoiceScreen() {
       <SafeAreaView style={styles.container}>
         <ProgressBar
           progress={progress}
-          onButtonPress={handleViewCompletedRecordings} // 올바른 prop 전달
+          onButtonPress={handleViewCompletedRecordings}
         />
 
         {pendingRecordings.map((item, index) => (
