@@ -103,10 +103,42 @@ function MainPage({ navigation }) {
               <Defs>
                 <LinearGradient
                   id="paint0_linear_176_6335"
-                  x1="39.715"
-                  y1="25.4583"
-                  x2="6.815"
-                  y2="25.4583"
+                  x1="-1.285"
+                  y1="72.4583"
+                  x2="-34.185"
+                  y2="72.4583"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <Stop stopColor="#2FEA9B" />
+                  <Stop offset="1" stopColor="#7FDD53" />
+                </LinearGradient>
+              </Defs>
+
+              <Path
+                d="M9.25844 17.0118L5.60566 13.2933C5.40898 13.0927 5.14197 12.9799 4.86352 12.9799C4.58507 12.9799 4.31806 13.0927 4.12138 13.2933C3.71084 13.7113 3.71084 14.3864 4.12138 14.8043L8.52157 19.2836C8.93211 19.7016 9.5953 19.7016 10.0058 19.2836L21.1431 7.94598C21.5537 7.52806 21.5537 6.85294 21.1431 6.43501C20.9465 6.23435 20.6795 6.12158 20.401 6.12158C20.1226 6.12158 19.8555 6.23435 19.6589 6.43501L9.25844 17.0118Z"
+                fill="url(#paint1_linear_176_6337)"
+                stroke="url(#paint2_linear_176_6337)"
+                strokeWidth="1.14815"
+                transform="translate(10, 10)"
+              />
+              <Defs>
+                <LinearGradient
+                  id="paint1_linear_176_6337"
+                  x1="18.7172"
+                  y1="13.4208"
+                  x2="6.37093"
+                  y2="13.4208"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <Stop stopColor="#2FEA9B" />
+                  <Stop offset="1" stopColor="#7FDD53" />
+                </LinearGradient>
+                <LinearGradient
+                  id="paint2_linear_176_6337"
+                  x1="18.7172"
+                  y1="13.4208"
+                  x2="6.37093"
+                  y2="13.4208"
                   gradientUnits="userSpaceOnUse"
                 >
                   <Stop stopColor="#2FEA9B" />
@@ -114,6 +146,7 @@ function MainPage({ navigation }) {
                 </LinearGradient>
               </Defs>
             </Svg>
+
             <View>
               <Text style={styles.minitext1}>44%</Text>
               <Text style={styles.minitext2}>음성 기록 현황</Text>
@@ -131,31 +164,23 @@ function MainPage({ navigation }) {
               style={styles.minisvg}
             >
               <Circle cx="23.5" cy="23.5" r="23.5" fill="#E7E5FF" />
-              <Svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 18 18"
-                fill="none"
-              >
-                <Path
-                  d="M4.05 17.7779H0.9C0.405 17.7779 0 17.3334 0 16.7902V6.91361C0 6.3704 0.405 5.92595 0.9 5.92595H4.05C4.545 5.92595 4.95 6.3704 4.95 6.91361V16.7902C4.95 17.3334 4.545 17.7779 4.05 17.7779ZM10.575 0H7.425C6.93 0 6.525 0.444446 6.525 0.987659V16.7902C6.525 17.3334 6.93 17.7779 7.425 17.7779H10.575C11.07 17.7779 11.475 17.3334 11.475 16.7902V0.987659C11.475 0.444446 11.07 0 10.575 0ZM17.1 7.90127H13.95C13.455 7.90127 13.05 8.34572 13.05 8.88893V16.7902C13.05 17.3334 13.455 17.7779 13.95 17.7779H17.1C17.595 17.7779 18 17.3334 18 16.7902V8.88893C18 8.34572 17.595 7.90127 17.1 7.90127Z"
-                  fill="url(#paint0_linear_182_3927)"
-                />
-                <Defs>
-                  <LinearGradient
-                    id="paint0_linear_182_3927"
-                    x1="9"
-                    y1="0"
-                    x2="9"
-                    y2="17.7779"
-                    gradientUnits="userSpaceOnUse"
-                  >
-                    <Stop stopColor="#967CFD" />
-                    <Stop offset="1" stopColor="#3177FF" />
-                  </LinearGradient>
-                </Defs>
-              </Svg>
+              <Path
+                d="M19.05 32.7779H15.9C15.405 32.7779 15 32.3334 15 31.7902V21.9136C15 21.3704 15.405 20.926 15.9 20.926H19.05C19.545 20.926 19.95 21.3704 19.95 21.9136V31.7902C19.95 32.3334 19.545 32.7779 19.05 32.7779ZM25.575 15H22.425C21.93 15 21.525 15.4444 21.525 15.9877V31.7902C21.525 32.3334 21.93 32.7779 22.425 32.7779H25.575C26.07 32.7779 26.475 32.3334 26.475 31.7902V15.9877C26.475 15.4444 26.07 15 25.575 15ZM32.1 22.9013H28.95C28.455 22.9013 28.05 23.3457 28.05 23.8889V31.7902C28.05 32.3334 28.455 32.7779 28.95 32.7779H32.1C32.595 32.7779 33 32.3334 33 31.7902V23.8889C33 23.3457 32.595 22.9013 32.1 22.9013Z"
+                fill="url(#paint0_linear_619_4617)"
+              />
+              <Defs>
+                <LinearGradient
+                  id="paint0_linear_619_4617"
+                  x1="24"
+                  y1="15"
+                  x2="24"
+                  y2="32.7779"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <Stop stopColor="#967CFD" />
+                  <Stop offset="1" stopColor="#3177FF" />
+                </LinearGradient>
+              </Defs>
             </Svg>
             <View>
               <Text style={styles.minitext1}>상위 20%</Text>
@@ -163,33 +188,24 @@ function MainPage({ navigation }) {
             </View>
           </View>
           <View style={styles.minibox}>
-            {/* <Svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="132"
-              height="131"
-              viewBox="0 0 132 131"
+            <Svg
+              width="47"
+              height="47"
+              viewBox="0 0 47 47"
               fill="none"
               style={styles.minisvg}
             >
               <Circle
                 cx="23.5"
-                cy="23.6238"
+                cy="23.5"
                 r="23.5"
-                fill="url(#paint0_linear_176_6357)"
-                fillOpacity="0.15"
+                fill="url(#paint0_linear_176_6414)"
+                fillOpacity="0.25"
               />
-              <Circle
-                cx="65.5"
-                cy="60.5"
-                r="23.5"
-                stroke="url(#paint1_linear_176_6414)"
-              />
-
               <Path
                 d="M66.0632 65.5777L69.9738 67.8825C70.69 68.3049 71.5663 67.6805 71.3778 66.8908L70.3413 62.5566L73.7996 59.6366C74.4309 59.104 74.0917 58.094 73.2624 58.0297L68.7111 57.6532L66.9302 53.5578C66.6098 52.8141 65.5167 52.8141 65.1963 53.5578L63.4154 57.644L58.8641 58.0205C58.0348 58.0848 57.6956 59.0949 58.3269 59.6274L61.7852 62.5475L60.7487 66.8816C60.5602 67.6713 61.4365 68.2957 62.1527 67.8733L66.0632 65.5777Z"
                 fill="url(#paint2_linear_176_6414)"
               />
-
               <Defs>
                 <LinearGradient
                   id="paint0_linear_176_6414"
@@ -200,32 +216,21 @@ function MainPage({ navigation }) {
                   gradientUnits="userSpaceOnUse"
                 >
                   <Stop stopColor="#FFCE51" />
-                  <Stop offset="1" stopColor="#CB9F03" />
+                  <Stop offset="1" stopColor="#FEE71C" />
                 </LinearGradient>
                 <LinearGradient
-                  id="paint1_linear_176_6414"
+                  id="paint2_linear_176_6414"
                   x1="65.5"
                   y1="37"
                   x2="65.5"
                   y2="84"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <Stop stopColor="#FFCE51" />
-                  <Stop offset="1" stopColor="#FEE71C" />
-                </LinearGradient>
-                <LinearGradient
-                  id="paint2_linear_176_6414"
-                  x1="66.0632"
-                  y1="53"
-                  x2="66.0632"
-                  y2="68.0187"
-                  gradientUnits="userSpaceOnUse"
-                >
                   <Stop stopColor="#FFAF51" />
                   <Stop offset="1" stopColor="#FFD914" />
                 </LinearGradient>
               </Defs>
-            </Svg> */}
+            </Svg>
 
             <View>
               <Text style={styles.minitext1}>20개</Text>
