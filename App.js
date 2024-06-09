@@ -21,8 +21,14 @@ import ChildNameBirth from "./screens/Signup/Child/ChildNameBirth";
 import ChildIdPw from "./screens/Signup/Child/ChildIdPw";
 import MainPage from "./screens/MainPage";
 import DiaryScreen from "./screens/DiaryScreen";
-import VoiceScreen from "./screens/VoiceScreen";
+import VoiceScreen from "./screens/VoiceRecording/VoiceScreen";
+import ProgressBar from "./screens/VoiceRecording/ProgressBar";
+import RecordingScreen from "./screens/VoiceRecording/RecordingScreen";
+import CompletedRecordingsScreen from "./screens/VoiceRecording/CompletedRecordingsScreen";
 import MyPageScreen from "./screens/MyPageScreen";
+import TodayQuestion from "./screens/TodayQuestion";
+import TodayQuestionFinish from "./screens/TodayQuestionFinish";
+import TodayQuestionList from "./screens/TodayQuestionList";
 
 const Stack = createStackNavigator();
 const BottomTabs = createBottomTabNavigator();
@@ -296,6 +302,171 @@ export default function App() {
             ),
           })}
         />
+        <Stack.Screen
+          name="TodayQuestion"
+          component={TodayQuestion}
+          options={({ navigation }) => ({
+            headerShown: true,
+            headerTitle: "TOGEDU",
+            headerTitleStyle: { fontSize: 30, fontFamily: "Arsenal" },
+            headerTintColor: "white",
+            headerStyle: {
+              backgroundColor: GlobalStyles.colors.primary100,
+              height: 73,
+            },
+            headerLeft: null,
+            headerRight: () => (
+              <TouchableOpacity>
+                <Svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="41"
+                  height="40"
+                  viewBox="0 0 41 40"
+                  fill="none"
+                  style={styles.maindateicon}
+                >
+                  <Rect
+                    x="5.58545"
+                    y="10"
+                    width="30.2108"
+                    height="25"
+                    rx="2"
+                    stroke="white"
+                  />
+                  <Path
+                    d="M5.58545 14C5.58545 12.1144 5.58545 11.1716 6.17124 10.5858C6.75702 10 7.69983 10 9.58545 10H31.7962C33.6818 10 34.6246 10 35.2104 10.5858C35.7962 11.1716 35.7962 12.1144 35.7962 14V16.6667H5.58545V14Z"
+                    fill="white"
+                  />
+                  <Path
+                    d="M12.2988 5L12.2988 10"
+                    stroke="white"
+                    strokeLinecap="round"
+                  />
+                  <Path
+                    d="M29.0825 5L29.0825 10"
+                    stroke="white"
+                    strokeLinecap="round"
+                  />
+                  <Rect
+                    x="12.2988"
+                    y="20"
+                    width="6.71351"
+                    height="3.33333"
+                    rx="0.5"
+                    fill="white"
+                  />
+                  <Rect
+                    x="12.2988"
+                    y="26.6667"
+                    width="6.71351"
+                    height="3.33333"
+                    rx="0.5"
+                    fill="white"
+                  />
+                  <Rect
+                    x="22.3691"
+                    y="20"
+                    width="6.7135"
+                    height="3.33333"
+                    rx="0.5"
+                    fill="white"
+                  />
+                  <Rect
+                    x="22.3691"
+                    y="26.6667"
+                    width="6.7135"
+                    height="3.33333"
+                    rx="0.5"
+                    fill="white"
+                  />
+                </Svg>
+              </TouchableOpacity>
+            ),
+          })}
+        />
+        <Stack.Screen
+          name="TodayQuestionFinish"
+          component={TodayQuestionFinish}
+          options={({ navigation }) => ({
+            headerShown: true,
+            headerTitle: "TOGEDU",
+            headerTitleStyle: { fontSize: 30, fontFamily: "Arsenal" },
+            headerTintColor: "white",
+            headerStyle: {
+              backgroundColor: GlobalStyles.colors.primary100,
+              height: 73,
+            },
+            headerLeft: null,
+            headerRight: () => (
+              <TouchableOpacity>
+                <Svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="41"
+                  height="40"
+                  viewBox="0 0 41 40"
+                  fill="none"
+                  style={styles.maindateicon}
+                >
+                  <Rect
+                    x="5.58545"
+                    y="10"
+                    width="30.2108"
+                    height="25"
+                    rx="2"
+                    stroke="white"
+                  />
+                  <Path
+                    d="M5.58545 14C5.58545 12.1144 5.58545 11.1716 6.17124 10.5858C6.75702 10 7.69983 10 9.58545 10H31.7962C33.6818 10 34.6246 10 35.2104 10.5858C35.7962 11.1716 35.7962 12.1144 35.7962 14V16.6667H5.58545V14Z"
+                    fill="white"
+                  />
+                  <Path
+                    d="M12.2988 5L12.2988 10"
+                    stroke="white"
+                    strokeLinecap="round"
+                  />
+                  <Path
+                    d="M29.0825 5L29.0825 10"
+                    stroke="white"
+                    strokeLinecap="round"
+                  />
+                  <Rect
+                    x="12.2988"
+                    y="20"
+                    width="6.71351"
+                    height="3.33333"
+                    rx="0.5"
+                    fill="white"
+                  />
+                  <Rect
+                    x="12.2988"
+                    y="26.6667"
+                    width="6.71351"
+                    height="3.33333"
+                    rx="0.5"
+                    fill="white"
+                  />
+                  <Rect
+                    x="22.3691"
+                    y="20"
+                    width="6.7135"
+                    height="3.33333"
+                    rx="0.5"
+                    fill="white"
+                  />
+                  <Rect
+                    x="22.3691"
+                    y="26.6667"
+                    width="6.7135"
+                    height="3.33333"
+                    rx="0.5"
+                    fill="white"
+                  />
+                </Svg>
+              </TouchableOpacity>
+            ),
+          })}
+        />
+
         <Stack.Screen
           name="ParentSignup"
           component={ParentSignup}
@@ -627,6 +798,15 @@ export default function App() {
             ),
           })}
         />
+
+        <Stack.Screen name="RecordingScreen" component={RecordingScreen} />
+
+        <Stack.Screen name="ProgressBar" component={ProgressBar}></Stack.Screen>
+        <Stack.Screen
+          name="CompletedRecordingsScreen"
+          component={CompletedRecordingsScreen}
+        />
+        <Stack.Screen name="TodayQuestionList" component={TodayQuestionList} />
       </Stack.Navigator>
     </NavigationContainer>
   );

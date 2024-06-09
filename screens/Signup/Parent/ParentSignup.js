@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity, Modal } from "react-native";
 import { GlobalStyles } from "../../../constants/styles";
 import Svg, { Path } from "react-native-svg";
 import { useNavigation } from "@react-navigation/native";
@@ -12,6 +12,14 @@ function ParentSignup() {
     marketingConsent: false,
     additionalTerms: false,
   });
+  const [isVisible, setIsVisible] = useState(false);
+  const [modalTitle, setModalTitle] = useState("");
+
+  const handleDetailPress = (title) => {
+    setModalTitle(title);
+    setIsVisible(true);
+  };
+
   const navigation = useNavigation();
 
   const handleCheck = () => {
@@ -34,6 +42,10 @@ function ParentSignup() {
 
   const handleNext = () => {
     navigation.navigate("ParentSearchCode");
+  };
+
+  const handleCloseModal = () => {
+    setIsVisible(false);
   };
   return (
     <View style={styles.outerContainer}>
@@ -102,7 +114,14 @@ function ParentSignup() {
               />
             </Svg>
           </TouchableOpacity>
-          <Text style={styles.text}>[필수] TOGEDU 이용 약관</Text>
+          <Text style={styles.text}>
+            [필수] TOGEDU 이용 약관{" "}
+            <TouchableOpacity
+              onPress={() => handleDetailPress("TOGEDU 이용 약관")}
+            >
+              <Text style={styles.detailText}>자세히</Text>
+            </TouchableOpacity>
+          </Text>
         </View>
         <View style={styles.textContainer}>
           <TouchableOpacity
@@ -129,7 +148,15 @@ function ParentSignup() {
               />
             </Svg>
           </TouchableOpacity>
-          <Text style={styles.text}>[필수] 개인정보 수집 및 이용 동의</Text>
+
+          <Text style={styles.text}>
+            [필수] 개인정보 수집 및 이용 동의{" "}
+            <TouchableOpacity
+              onPress={() => handleDetailPress("개인정보 수집 및 이용 동의")}
+            >
+              <Text style={styles.detailText}>자세히</Text>
+            </TouchableOpacity>
+          </Text>
         </View>
         <View style={styles.textContainer}>
           <TouchableOpacity onPress={() => handleTermsClick("additionalTerms")}>
@@ -154,7 +181,7 @@ function ParentSignup() {
               />
             </Svg>
           </TouchableOpacity>
-          <Text style={styles.text}>[선택] 광고성 정보 수신 동의</Text>
+          <Text style={styles.text}>[선택] 광고성 정보 수신 동의 </Text>
         </View>
         <View style={styles.textContainer}>
           <TouchableOpacity onPress={() => handleTermsClick("serviceTerms")}>
@@ -179,7 +206,14 @@ function ParentSignup() {
               />
             </Svg>
           </TouchableOpacity>
-          <Text style={styles.text}>[선택] 개인정보 수집 및 이용 동의</Text>
+          <Text style={styles.text}>
+            [선택] 개인정보 수집 및 이용 동의{" "}
+            <TouchableOpacity
+              onPress={() => handleDetailPress("개인정보 수집 및 이용 동의")}
+            >
+              <Text style={styles.detailText}>자세히</Text>
+            </TouchableOpacity>
+          </Text>
         </View>
         <TouchableOpacity
           onPress={() => {
@@ -195,6 +229,38 @@ function ParentSignup() {
         >
           <Text style={styles.nextBtnText}>다음</Text>
         </TouchableOpacity>
+
+        <Modal
+          visible={isVisible}
+          animationType="slide"
+          transparent={true}
+          onRequestClose={handleCloseModal}
+        >
+          <View style={styles.modalContainer}>
+            <View style={styles.modalContent}>
+              <View style={styles.modalTitle}>
+                <Text style={styles.modalTitleText}>{modalTitle}</Text>
+                <TouchableOpacity
+                  onPress={handleCloseModal}
+                  style={styles.modalIcon}
+                >
+                  <Svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17"
+                    height="17"
+                    viewBox="0 0 17 17"
+                    fill="none"
+                  >
+                    <Path
+                      d="M16.6418 14.9244C16.8699 15.1524 16.998 15.4617 16.998 15.7841C16.998 16.1066 16.8699 16.4159 16.6418 16.6439C16.4138 16.8719 16.1045 17 15.782 17C15.4595 17 15.1503 16.8719 14.9222 16.6439L8.5 10.22L2.07575 16.6419C1.84772 16.8699 1.53843 16.998 1.21595 16.998C0.893457 16.998 0.584177 16.8699 0.356142 16.6419C0.128108 16.4138 3.39797e-09 16.1046 0 15.7821C-3.39797e-09 15.4596 0.128108 15.1504 0.356142 14.9224L6.78039 8.50051L0.358165 2.07664C0.130131 1.84862 0.00202311 1.53935 0.00202311 1.21688C0.00202312 0.894415 0.130131 0.585153 0.358165 0.357133C0.586199 0.129112 0.89548 0.00101131 1.21797 0.0010113C1.54046 0.0010113 1.84974 0.129112 2.07777 0.357133L8.5 6.781L14.9242 0.356121C15.1523 0.1281 15.4616 -5.37235e-09 15.7841 0C16.1065 5.37235e-09 16.4158 0.1281 16.6439 0.356121C16.8719 0.584141 17 0.893404 17 1.21587C17 1.53834 16.8719 1.84761 16.6439 2.07563L10.2196 8.50051L16.6418 14.9244Z"
+                      fill="#545454"
+                    />
+                  </Svg>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </View>
+        </Modal>
       </View>
     </View>
   );
@@ -266,6 +332,9 @@ const styles = StyleSheet.create({
     fontSize: 15,
     marginLeft: 11,
   },
+  detailText: {
+    textDecorationLine: "underline",
+  },
   nextBtn: {
     backgroundColor: GlobalStyles.colors.primary200,
     width: 350,
@@ -280,6 +349,37 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: "bold",
     color: "#000",
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+  },
+  modalContent: {
+    width: 350,
+    height: 600,
+    backgroundColor: "#fff",
+    alignItems: "center",
+  },
+  modalTitle: {
+    width: 350,
+    height: 80,
+    backgroundColor: GlobalStyles.colors.primary100,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+  },
+  modalTitleText: {
+    color: "white",
+    fontSize: 20,
+    fontWeight: "600",
+    textAlign: "center",
+  },
+  modalIcon: {
+    position: "absolute",
+    right: 24,
   },
 });
 export default ParentSignup;
