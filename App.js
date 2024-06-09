@@ -28,6 +28,7 @@ import CompletedRecordingsScreen from "./screens/VoiceRecording/CompletedRecordi
 import MyPageScreen from "./screens/MyPageScreen";
 import TodayQuestion from "./screens/TodayQuestion";
 import TodayQuestionFinish from "./screens/TodayQuestionFinish";
+import TodayQuestionList from "./screens/TodayQuestionList";
 
 const Stack = createStackNavigator();
 const BottomTabs = createBottomTabNavigator();
@@ -805,6 +806,7 @@ export default function App() {
           name="CompletedRecordingsScreen"
           component={CompletedRecordingsScreen}
         />
+        <Stack.Screen name="TodayQuestionList" component={TodayQuestionList} />
       </Stack.Navigator>
     </NavigationContainer>
   );
