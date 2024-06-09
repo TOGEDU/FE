@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { GlobalStyles } from "../../constants/styles";
 import ProgressBar from "./ProgressBar";
 
 export default function VoiceScreen() {
@@ -44,7 +45,7 @@ export default function VoiceScreen() {
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.scrollView}>
+    <ScrollView style={styles.outerContainer}>
       <SafeAreaView style={styles.container}>
         <ProgressBar
           progress={progress}
@@ -71,7 +72,10 @@ const styles = StyleSheet.create({
     padding: 16,
     backgroundColor: "#f5f5f5",
   },
-  scrollView: {},
+  outerContainer: {
+    flex: 1,
+    backgroundColor: GlobalStyles.colors.primary100,
+  },
   recordingItem: {
     marginHorizontal: 20,
     backgroundColor: "#DAEDD5",
