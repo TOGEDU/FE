@@ -15,11 +15,19 @@ export default function Login() {
   const navigation = useNavigation();
   const [id, onChangeId] = useState("");
   const [password, onChangePassword] = useState("");
+  
   const navigateToSignup = () => {
     navigation.navigate("Signup");
   };
-  const navigateToMainPage = () => {
-    navigation.navigate("MainPage");
+  
+  const handleLogin = () => {
+    if (id === "1234" && password === "1234") {
+      navigation.navigate("MainPage");
+    } else if (id === "5678" && password === "5678") {
+      navigation.navigate("ChildChat");
+    } else {
+      alert("Invalid credentials");
+    }
   };
   return (
     <View style={styles.container}>
@@ -113,7 +121,7 @@ export default function Login() {
         </Svg>
       </View>
 
-      <TouchableOpacity style={styles.loginButton} onPress={navigateToMainPage}>
+      <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
         <Text style={styles.buttonText}>로그인</Text>
       </TouchableOpacity>
 

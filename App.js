@@ -28,6 +28,7 @@ import CompletedRecordingsScreen from "./screens/VoiceRecording/CompletedRecordi
 import MyPageScreen from "./screens/MyPageScreen";
 import TodayQuestion from "./screens/TodayQuestion";
 import TodayQuestionFinish from "./screens/TodayQuestionFinish";
+import ChildChat from "./screens/ChildChat";
 import TodayQuestionList from "./screens/TodayQuestionList";
 
 const Stack = createStackNavigator();
@@ -214,6 +215,88 @@ export default function App() {
                   <Path
                     d="M25.6833 27.65L18.0499 20L25.6833 12.35L23.3333 10L13.3333 20L23.3333 30L25.6833 27.65Z"
                     fill="#656F77"
+                  />
+                </Svg>
+              </TouchableOpacity>
+            ),
+          })}
+        />
+        <Stack.Screen
+          name="ChildChat"
+          component={ChildChat}
+          options={({ navigation }) => ({
+            headerShown: true,
+            headerTitle: "TOGEDU",
+            headerTitleStyle: { fontSize: 30, fontFamily: "Arsenal" },
+            headerTintColor: "white",
+            headerStyle: {
+              backgroundColor: GlobalStyles.colors.primary100,
+              height: 73,
+            },
+            headerLeft: null,
+            headerRight: () => (
+              <TouchableOpacity>
+                <Svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="41"
+                  height="40"
+                  viewBox="0 0 41 40"
+                  fill="none"
+                  style={styles.maindateicon}
+                >
+                  <Rect
+                    x="5.58545"
+                    y="10"
+                    width="30.2108"
+                    height="25"
+                    rx="2"
+                    stroke="white"
+                  />
+                  <Path
+                    d="M5.58545 14C5.58545 12.1144 5.58545 11.1716 6.17124 10.5858C6.75702 10 7.69983 10 9.58545 10H31.7962C33.6818 10 34.6246 10 35.2104 10.5858C35.7962 11.1716 35.7962 12.1144 35.7962 14V16.6667H5.58545V14Z"
+                    fill="white"
+                  />
+                  <Path
+                    d="M12.2988 5L12.2988 10"
+                    stroke="white"
+                    strokeLinecap="round"
+                  />
+                  <Path
+                    d="M29.0825 5L29.0825 10"
+                    stroke="white"
+                    strokeLinecap="round"
+                  />
+                  <Rect
+                    x="12.2988"
+                    y="20"
+                    width="6.71351"
+                    height="3.33333"
+                    rx="0.5"
+                    fill="white"
+                  />
+                  <Rect
+                    x="12.2988"
+                    y="26.6667"
+                    width="6.71351"
+                    height="3.33333"
+                    rx="0.5"
+                    fill="white"
+                  />
+                  <Rect
+                    x="22.3691"
+                    y="20"
+                    width="6.7135"
+                    height="3.33333"
+                    rx="0.5"
+                    fill="white"
+                  />
+                  <Rect
+                    x="22.3691"
+                    y="26.6667"
+                    width="6.7135"
+                    height="3.33333"
+                    rx="0.5"
+                    fill="white"
                   />
                 </Svg>
               </TouchableOpacity>
