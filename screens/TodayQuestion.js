@@ -18,6 +18,10 @@ function TodayQuestion({ navigation }) {
     navigation.navigate("TodayQuestionFinish");
   };
 
+  const handleListNavigate = () => {
+    navigation.navigate("TodayQuestionList"); // 목록보기 버튼 클릭 시 TodayQuestionList.js로 네비게이션
+  };
+
   return (
     <ScrollView style={styles.outerContainer}>
       <View style={styles.container}>
@@ -44,7 +48,7 @@ function TodayQuestion({ navigation }) {
         <TouchableOpacity style={styles.wrbtn} onPress={handleNavigate}>
           <Text style={styles.wrbtnText}>기록하기</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.listbtn}>
+        <TouchableOpacity style={styles.listbtn} onPress={handleListNavigate}>
           <Text style={styles.wrbtnText}>목록보기</Text>
         </TouchableOpacity>
       </View>

@@ -21,11 +21,15 @@ import ChildNameBirth from "./screens/Signup/Child/ChildNameBirth";
 import ChildIdPw from "./screens/Signup/Child/ChildIdPw";
 import MainPage from "./screens/MainPage";
 import DiaryScreen from "./screens/DiaryScreen";
-import VoiceScreen from "./screens/VoiceScreen";
+import VoiceScreen from "./screens/VoiceRecording/VoiceScreen";
+import ProgressBar from "./screens/VoiceRecording/ProgressBar";
+import RecordingScreen from "./screens/VoiceRecording/RecordingScreen";
+import CompletedRecordingsScreen from "./screens/VoiceRecording/CompletedRecordingsScreen";
 import MyPageScreen from "./screens/MyPageScreen";
 import TodayQuestion from "./screens/TodayQuestion";
 import TodayQuestionFinish from "./screens/TodayQuestionFinish";
 import ChildChat from "./screens/ChildChat";
+import TodayQuestionList from "./screens/TodayQuestionList";
 
 const Stack = createStackNavigator();
 const BottomTabs = createBottomTabNavigator();
@@ -877,6 +881,15 @@ export default function App() {
             ),
           })}
         />
+
+        <Stack.Screen name="RecordingScreen" component={RecordingScreen} />
+
+        <Stack.Screen name="ProgressBar" component={ProgressBar}></Stack.Screen>
+        <Stack.Screen
+          name="CompletedRecordingsScreen"
+          component={CompletedRecordingsScreen}
+        />
+        <Stack.Screen name="TodayQuestionList" component={TodayQuestionList} />
       </Stack.Navigator>
     </NavigationContainer>
   );
